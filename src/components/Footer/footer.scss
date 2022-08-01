@@ -1,0 +1,19 @@
+.footer__body {
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @media screen and (max-width: 767.98px) {
+    flex-direction: column;
+    height: 100%;
+    padding: 5px 0;
+  }
+}
+
+.footer__body-copyright {
+  @media screen and (max-width: 767.98px) {
+    padding: 5px;
+    order: 2;
+  }
+}
