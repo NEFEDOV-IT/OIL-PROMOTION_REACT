@@ -1,19 +1,15 @@
 import React, {FC} from 'react';
-import { Button } from '@mui/material';
 import './footer.scss'
+import Notification from "../Notification/Notification";
 
 const Footer: FC = () => {
     return (
         <footer>
             <div className="footer__body">
                 <div className="footer__body-copyright">
-                    Copyright © 2022 Oil Promotion LTD. All rights reserved.
+                    Copyright © 2022 Oil Promotion LTD. <span>All rights reserved.</span>
                 </div>
-                <Button
-                    href={'#'}
-                    variant="outlined"
-                    size="small"
-                >Notification</Button>
+                <Notification/>
             </div>
         </footer>
     );

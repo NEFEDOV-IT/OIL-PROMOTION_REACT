@@ -26,7 +26,7 @@ const Navigation:FC = () => {
               </Link>
             </li>
             <li>
-              <Link onClick={() => setMenuActive(false)} to={'/users'}>
+              <Link onClick={() => setMenuActive(false)} to={'/about'}>
                 <Button
                     size="large"
                     color="secondary"
@@ -36,7 +36,17 @@ const Navigation:FC = () => {
               </Link>
             </li>
             <li>
-              <Link onClick={() => setMenuActive(false)} to={''}>
+              <Link onClick={() => setMenuActive(false)} to={'/charts'}>
+                <Button
+                    size="large"
+                    color="secondary"
+                    variant="text">
+                  Charts
+                </Button>
+              </Link>
+            </li>
+            <li>
+              <Link onClick={() => setMenuActive(false)} to={'/contacts'}>
                 <Button
                     size="large"
                     color="secondary"

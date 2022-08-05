@@ -1,0 +1,25 @@
+.about__body-title {
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  @media screen and (max-width: 767.98px) {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+}
+
+.about__body-subtitle {
+  margin-bottom: 30px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.accordion {
+  margin-bottom: 30px;
+}
+
+.accordion__link {
+  color: #0478b3;
+  font-weight: bold;
+}

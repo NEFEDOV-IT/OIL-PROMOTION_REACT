@@ -32,11 +32,11 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
             : 'rgba(0, 0, 0, .03)',
     flexDirection: 'row-reverse',
     '& .MuiAccordionSummary-expandIconWrapper' : {
-        color: 'rgb(37, 99, 235)',
+        color: '#0478b3',
     },
     '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
         transform: 'rotate(90deg)',
-        color: 'rgb(37, 99, 235)',
+        color: '#0478b3',
     },
     '& .MuiAccordionSummary-content': {
         marginLeft: theme.spacing(1),
@@ -49,6 +49,14 @@ const AccordionDetails = styled(MuiAccordionDetails)(({theme}) => ({
     textAlign: 'left',
 }));
 
+const styleAccordion = {
+    maxWidth: 1100,
+    color: '#455a64',
+    margin: '0 auto',
+    boxShadow: 10,
+    textAlign: 'left',
+}
+
 export default function CustomizedAccordions() {
     const [expanded, setExpanded] = React.useState<string | false>('');
 
@@ -58,66 +66,42 @@ export default function CustomizedAccordions() {
         };
 
     return (
-        <main>
+        <section className={'accordion'}>
             <Accordion
-                sx={{
-                    maxWidth: 800,
-                    color: 'success.primary',
-                    margin: '0 auto',
-                    boxShadow: 10,
-                }}
+                sx={styleAccordion}
                 expanded={expanded === 'panel1'}
                 onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                    <Typography>Collapsible Group Item #1</Typography>
+                    <Typography>How to buy oil from you?</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                        malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
+                        To buy oil, you can contact the contact numbers in the "Contacts" section or write to us by mail <a className={'accordion__link'} href={'mailto: mail@mail.ru'}>mail@mail.ru</a> indicating the quantity required.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion sx={{
-                maxWidth: 800,
-                color: 'success.primary',
-                margin: '0 auto',
-                boxShadow: 10,
-            }} expanded={expanded === 'panel2'}
+            <Accordion sx={styleAccordion} expanded={expanded === 'panel2'}
                        onChange={handleChange('panel2')}>
                 <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                    <Typography>Collapsible Group Item #2</Typography>
+                    <Typography>What payment methods do you have?</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                        malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
+                        At the conclusion of the contract, you can make an advance payment for the declared goods, which guarantees its reservation for you. It is also possible to pay 50/50 or postpaid, in which case the availability of the goods is not guaranteed and the reservation is not possible.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion sx={{
-                maxWidth: 800,
-                color: 'success.primary',
-                margin: '0 auto',
-                boxShadow: 10,
-            }} expanded={expanded === 'panel3'}
+            <Accordion sx={styleAccordion} expanded={expanded === 'panel3'}
                        onChange={handleChange('panel3')}>
                 <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                    <Typography>Collapsible Group Item #3</Typography>
+                    <Typography>How can you deliver?</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                        malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
+                        Delivery of the Goods to the destination is possible by auto-cisterns, railway tanks and tankers. Contact our managers and they will select a convenient delivery method for you.
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-        </main>
+        </section>
     );
 }
