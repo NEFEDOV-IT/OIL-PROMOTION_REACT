@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-    <BrowserRouter>
+    <BrowserRouter basename="/_sites/oil-promotion">
         <ThemeProvider theme={theme}>
             <App/>
         </ThemeProvider>

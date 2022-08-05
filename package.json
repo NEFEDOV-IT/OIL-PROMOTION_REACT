@@ -2,6 +2,7 @@
   "name": "company_react_spa_redux_ts",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nefedov-it.ru/_sites/oil-promotion",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
