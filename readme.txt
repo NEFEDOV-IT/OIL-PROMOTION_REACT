@@ -1,6 +1,10 @@
 Use technology:
 
+npm install --save-dev --save-exact prettier --force
+npm install --global prettier
+
 npx create-react-app . --template typescript
+npm install @reduxjs/toolkit react-redux
 npm i sass
 npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/icons-material
