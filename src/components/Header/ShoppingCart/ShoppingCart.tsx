@@ -4,9 +4,16 @@ import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./ShoppingCart.scss";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import { ICard } from "../../../types/store.initialState";
 
-const amountBasket = 1
+interface ICart {
+  cart: ICard[];
+}
+
+interface cartState {
+  cart: ICart;
+}
 
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -18,7 +25,8 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 }));
 
 export default function CustomizedBadges() {
-  const cart = useSelector((state: any) => state.shop.cart)
+  const cart = useSelector((state: cartState) => state.cart.cart);
+
   return (
     <IconButton className={"shopping__cart"} aria-label="cart">
       <StyledBadge badgeContent={cart.length} color="secondary">

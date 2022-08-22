@@ -67,14 +67,14 @@ export default function Notification() {
             impersonating us. It is important to know that our site starts with{" "}
             <span
               onClick={() => toNavigate("/")}
-              className={"notification__contacts"}
+              className={"root__link"}
             >
               https://site.com/
             </span>{" "}
             without prefixes, as well as our contact information is listed in
             the{" "}
             <span
-              className={"notification__contacts"}
+              className={"root__link"}
               onClick={() => toNavigate("/contacts")}
             >
               "Contacts"

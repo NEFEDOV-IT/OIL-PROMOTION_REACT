@@ -2,14 +2,7 @@ import React, { FC } from "react";
 import ShoppingCard from "./ShoppingCard/ShoppingCard";
 import "./ShoppingCards.scss";
 import {useSelector} from "react-redux";
-
-interface ICard {
-  name: string;
-  subtitle: string;
-  id: number;
-  img: string;
-  size: number;
-}
+import { ICard } from "../../../types/store.initialState";
 
 const ShoppingCards: FC = () => {
   const cards = useSelector((state: any) => state.shop.data)

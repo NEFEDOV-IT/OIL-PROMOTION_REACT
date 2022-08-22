@@ -4,7 +4,7 @@ import "./Header.scss";
 import img from "../../img/oil.png";
 import { Navigation } from "./Navigation";
 import { Button } from "@mui/material";
-import CustomizedBadges from "../../pages/Shop/ShoppingCart/ShoppingCart";
+import CustomizedBadges from "./ShoppingCart/ShoppingCart";
 
 const Header: FC = () => {
   return (
