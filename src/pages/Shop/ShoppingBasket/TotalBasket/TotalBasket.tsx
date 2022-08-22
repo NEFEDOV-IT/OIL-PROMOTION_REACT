@@ -41,7 +41,7 @@ const TotalBasket: FC = () => {
       </div>
       {basket.length > 0 ? (
         <Button onClick={removeFullCart} className="basket__link" variant="contained">
-          CHECKOUT
+          TO ORDER
         </Button>
       ) : null}
     </>

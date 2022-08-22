@@ -43,6 +43,9 @@ header {
     font-size: 20px;
     font-weight: 300;
     letter-spacing: 0.02857em;
+    @media screen and (max-width: 424.98px) {
+      font-size: 18px;
+    }
   }
 
   & .header__shop {
