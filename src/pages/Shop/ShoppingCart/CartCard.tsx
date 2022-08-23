@@ -7,7 +7,7 @@ import {
 } from "../../../store/shop/shop.slice";
 import { removeItemCart } from "../../../store/cart/cart.slice";
 
-const BasketCard = (item: ICard) => {
+const CartCard = (item: ICard) => {
   const dispatch = useDispatch();
 
   const removeCard = () => {
@@ -58,4 +58,4 @@ const BasketCard = (item: ICard) => {
   );
 };
 
-export default BasketCard;
+export default CartCard;

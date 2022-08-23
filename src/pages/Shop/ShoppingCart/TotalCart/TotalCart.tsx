@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { Button } from "@mui/material";
-import './TotalBasket.scss'
+import './TotalCart.scss'
 import {DOLLAR} from "../../../../store/shop/initialState";
 import {ICard} from "../../../../types/store.initialState";
 import {removeCart} from "../../../../store/cart/cart.slice";
@@ -12,7 +12,7 @@ interface ICart {
   size: number;
 }
 
-const TotalBasket: FC = () => {
+const TotalCart: FC = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state: any) => state.cart.cart);
   const cards = useSelector((state: any) => state.shop.data);
@@ -48,4 +48,4 @@ const TotalBasket: FC = () => {
   );
 };
 
-export default TotalBasket;
+export default TotalCart;

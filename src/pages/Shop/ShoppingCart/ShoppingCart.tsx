@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { ICard } from "../../../types/store.initialState";
-import BasketCard from "./BasketCard";
+import CartCard from "./CartCard";
 import { useNavigate } from "react-router-dom";
-import "./ShoppingBasket.scss";
-import TotalBasket from "./TotalBasket/TotalBasket";
+import "./ShoppingCart.scss";
+import TotalCart from "./TotalCart/TotalCart";
 import RemoveCart from "./RemoveCart";
 import { ICards, ICart } from "../../../types/states.useSelector";
 
-const ShoppingBasket: FC = () => {
+const ShoppingCart: FC = () => {
   const cart = useSelector((state: ICart) => state.cart.cart);
   const cards = useSelector((state: ICards) => state.shop.data);
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const ShoppingBasket: FC = () => {
             <div className="basket__cards">
               {basket?.length > 0 ? (
                 basket.map((item: ICard) => {
-                  return <BasketCard {...item} key={item.id} />;
+                  return <CartCard {...item} key={item.id} />;
                 })
               ) : (
                 <div>
@@ -43,7 +43,7 @@ const ShoppingBasket: FC = () => {
                 </div>
               )}
             </div>
-            <TotalBasket />
+            <TotalCart />
           </div>
         </div>
       </div>
@@ -51,4 +51,4 @@ const ShoppingBasket: FC = () => {
   );
 };
 
-export default ShoppingBasket;
+export default ShoppingCart;

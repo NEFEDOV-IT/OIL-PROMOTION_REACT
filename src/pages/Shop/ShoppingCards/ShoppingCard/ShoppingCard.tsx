@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const ShoppingCard: FC<IProps> = ({item}) => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(1);
     const dispatch = useDispatch();
 
     const HandleClick = () => {
@@ -22,7 +22,7 @@ const ShoppingCard: FC<IProps> = ({item}) => {
         }
         dispatch(addItemCart(item.id));
         dispatch(addShopSize(shopItem))
-        setValue(0);
+        setValue(1);
     };
 
     const addSize = () => {
