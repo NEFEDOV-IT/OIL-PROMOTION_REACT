@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const ShoppingCard: FC<IProps> = ({item}) => {
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState<number>(1);
     const dispatch = useDispatch();
 
     const HandleClick = () => {

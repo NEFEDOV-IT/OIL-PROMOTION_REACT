@@ -32,11 +32,48 @@ export const shopSlice = createSlice({
       }
     },
     removeShopSize(state) {
-      state.data.map(item => item.size = 0)
-    }
+      state.data.map((item) => (item.size = 0));
+    },
+    sortShop(state, action) {
+      switch (action.payload) {
+        case 2:
+          state.data.sort((a, b) => a.price - b.price);
+          return;
+        case 3:
+          state.data.sort((a, b) => b.price - a.price);
+          return;
+        case 4:
+          state.data.sort((a, b) => {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+          });
+          return;
+        case 5:
+          state.data.sort((a, b) => {
+            if (a.name > b.name) return -1;
+            if (a.name < b.name) return 1;
+            return 0;
+          });
+          return;
+        default:
+          state.data.sort((a, b) => a.id - b.id);
+      }
+    },
+    searchItemShop(state, action) {
+      state.data = initialState.data.filter((item) =>
+        item.name.toLowerCase().includes(action.payload.toLowerCase())
+      );
+    },
   },
 });
 
-export const { addShopSize, addShopSizeInCart, removeShopSize, removeShopSizeInCart } =
-  shopSlice.actions;
+export const {
+  addShopSize,
+  addShopSizeInCart,
+  removeShopSize,
+  removeShopSizeInCart,
+  sortShop,
+  searchItemShop,
+} = shopSlice.actions;
 export const shopReducer = shopSlice.reducer;
