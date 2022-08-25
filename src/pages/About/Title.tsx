@@ -3,7 +3,7 @@ import React, { FC } from "react";
 const Title: FC = () => {
   return (
     <div className="about__body">
-      <h1 className={"about__body-title"}>About</h1>
+      <h1 className={"about__body-title root__title"}>About</h1>
       <p className={"about__body-subtitle"}>
         Our company is engaged in oil production for further deliveries
         throughout the Russian Federation and neighboring countries. The CEO of

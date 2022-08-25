@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {useDispatch} from "react-redux";
-import {removeCart} from "../../../store/cart/cart.slice";
-import {removeShopSize} from "../../../store/shop/shop.slice";
+import {removeCart} from "../../store/cart/cart.slice";
+import {removeShopSize} from "../../store/shop/shop.slice";
 
 const RemoveCart: FC = () => {
     const dispatch = useDispatch();

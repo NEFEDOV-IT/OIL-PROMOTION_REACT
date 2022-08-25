@@ -23,6 +23,20 @@ export const shopSlice = createSlice({
         state.data[index].size += action.payload.size;
       }
     },
+    changeQuantity(state, action) {
+      const index = state.data.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (state.data[index].size <= 99) {
+        state.data[index].size = action.payload.size;
+      }
+    },
+    changeSizeWithRemoveCart(state, action) {
+      const index = state.data.findIndex(
+        (item) => item.id === action.payload
+      );
+      state.data[index].size = 0;
+    },
     removeShopSizeInCart(state, action) {
       const index = state.data.findIndex(
         (item) => item.id === action.payload.id
@@ -75,5 +89,7 @@ export const {
   removeShopSizeInCart,
   sortShop,
   searchItemShop,
+  changeQuantity,
+  changeSizeWithRemoveCart,
 } = shopSlice.actions;
 export const shopReducer = shopSlice.reducer;

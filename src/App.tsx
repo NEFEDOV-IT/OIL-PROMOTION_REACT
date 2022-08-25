@@ -9,7 +9,8 @@ import About from "./pages/About/About";
 import Charts from "./pages/Charts/Charts";
 import NotFound from "./pages/NotFound/NotFound";
 import Shop from "./pages/Shop/Shop";
-import ShoppingCart from "./pages/Shop/ShoppingCart/ShoppingCart";
+import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
+import Thanks from "./pages/Thanks/Thanks";
 
 const App: FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: FC = () => {
         <Route path="/about" element={<About />} />
         <Route path="/charts" element={<Charts />} />
         <Route path="/contacts" element={<Contacts />} />
+        <Route path="/thanks" element={<Thanks />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

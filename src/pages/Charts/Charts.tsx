@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+ import React, {FC} from "react";
 import "./Charts.scss";
 import {
   LineChart,
@@ -12,7 +12,7 @@ import {
 import ChartOil from "./ChartOil/ChartOil";
 
 const chartsText = {
-  h1: <h1 className="oil__charts-h1">Charts</h1>,
+  h1: <h1 className="oil__charts-h1 root__title">Charts</h1>,
   h2: (
     <h2 className="oil__charts-h2">
       Graph of oil production for the last year

@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
-import { ICard } from "../../../types/store.initialState";
+import { ICard } from "../../types/store.initialState";
 import CartCard from "./CartCard";
 import { useNavigate } from "react-router-dom";
 import "./ShoppingCart.scss";
 import TotalCart from "./TotalCart/TotalCart";
 import RemoveCart from "./RemoveCart";
-import { ICards, ICart } from "../../../types/states.useSelector";
+import { ICards, ICart } from "../../types/states.useSelector";
 
 const ShoppingCart: FC = () => {
   const cart = useSelector((state: ICart) => state.cart.cart);
@@ -19,7 +19,7 @@ const ShoppingCart: FC = () => {
     <div className={"main"}>
       <div className="container">
         <div className={"basket shop"}>
-          <h1 className="basket__title shop__title">SHOPPING CART</h1>
+          <h1 className="basket__title root__title">SHOPPING CART</h1>
           <div className="basket__body">
             {basket?.length > 0 ? <RemoveCart /> : null}
             <div className="basket__cards">

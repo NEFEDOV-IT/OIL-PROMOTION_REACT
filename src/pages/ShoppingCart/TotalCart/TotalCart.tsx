@@ -2,10 +2,11 @@ import React, { FC } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { Button } from "@mui/material";
 import './TotalCart.scss'
-import {DOLLAR} from "../../../../store/shop/initialState";
-import {ICard} from "../../../../types/store.initialState";
-import {removeCart} from "../../../../store/cart/cart.slice";
-import {removeShopSize} from "../../../../store/shop/shop.slice";
+import {DOLLAR} from "../../../store/shop/initialState";
+import {ICard} from "../../../types/store.initialState";
+import {removeCart} from "../../../store/cart/cart.slice";
+import {removeShopSize} from "../../../store/shop/shop.slice";
+import {useNavigate} from "react-router-dom";
 
 interface ICart {
   price: number;
@@ -13,6 +14,7 @@ interface ICart {
 }
 
 const TotalCart: FC = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const cart = useSelector((state: any) => state.cart.cart);
   const cards = useSelector((state: any) => state.shop.data);
@@ -21,7 +23,7 @@ const TotalCart: FC = () => {
   const removeFullCart = () => {
     dispatch(removeCart())
     dispatch(removeShopSize())
-    alert('Thanks for your order! Our manager will contact you soon.')
+    navigate('/thanks')
   }
 
   const answer: number[] = [];
