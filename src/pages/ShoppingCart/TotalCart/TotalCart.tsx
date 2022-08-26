@@ -14,18 +14,9 @@ interface ICart {
 }
 
 const TotalCart: FC = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch();
   const cart = useSelector((state: any) => state.cart.cart);
   const cards = useSelector((state: any) => state.shop.data);
   const basket = cards.filter((item: ICard) => cart.includes(item.id));
-
-  const removeFullCart = () => {
-    dispatch(removeCart())
-    dispatch(removeShopSize())
-    navigate('/thanks')
-  }
-
   const answer: number[] = [];
 
   basket.map((item: ICart) => {
@@ -41,11 +32,6 @@ const TotalCart: FC = () => {
       <div className="basket__total">
         {basket.length > 0 ? `TOTAL: ${sumCart} ${DOLLAR}` : null}
       </div>
-      {basket.length > 0 ? (
-        <Button onClick={removeFullCart} className="basket__link" variant="contained">
-          TO ORDER
-        </Button>
-      ) : null}
     </>
   );
 };

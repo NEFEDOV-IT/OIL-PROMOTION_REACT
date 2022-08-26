@@ -7,6 +7,7 @@ import "./ShoppingCart.scss";
 import TotalCart from "./TotalCart/TotalCart";
 import RemoveCart from "./RemoveCart";
 import { ICards, ICart } from "../../types/states.useSelector";
+import {FormCart} from "./FormCart/FormCart";
 
 const ShoppingCart: FC = () => {
   const cart = useSelector((state: ICart) => state.cart.cart);
@@ -44,6 +45,7 @@ const ShoppingCart: FC = () => {
               )}
             </div>
             <TotalCart />
+            {basket?.length > 0 ? <FormCart /> : null}
           </div>
         </div>
       </div>
