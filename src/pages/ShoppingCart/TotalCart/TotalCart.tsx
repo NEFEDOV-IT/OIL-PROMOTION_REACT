@@ -1,12 +1,8 @@
 import React, { FC } from "react";
-import {useDispatch, useSelector} from "react-redux";
-import { Button } from "@mui/material";
+import {useSelector} from "react-redux";
 import './TotalCart.scss'
 import {DOLLAR} from "../../../store/shop/initialState";
 import {ICard} from "../../../types/store.initialState";
-import {removeCart} from "../../../store/cart/cart.slice";
-import {removeShopSize} from "../../../store/shop/shop.slice";
-import {useNavigate} from "react-router-dom";
 
 interface ICart {
   price: number;
@@ -19,9 +15,7 @@ const TotalCart: FC = () => {
   const basket = cards.filter((item: ICard) => cart.includes(item.id));
   const answer: number[] = [];
 
-  basket.map((item: ICart) => {
-    answer.push(item.price * item.size);
-  });
+  basket.map((item: ICart) => answer.push(item.price * item.size));
 
   const sumCart = answer.reduce((sum: number, current: number): number => {
     return sum + current;

@@ -11,7 +11,7 @@ import "./Notification.scss";
 
 export default function Notification() {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const [scroll, setScroll] = useState<DialogProps["scroll"]>("paper");
 
   const handleClickOpen = (scrollType: DialogProps["scroll"]) => () => {

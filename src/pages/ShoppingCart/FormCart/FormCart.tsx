@@ -2,13 +2,13 @@ import { Button, LinearProgress } from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-mui";
 import * as React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./FormCart.scss";
 import { ICards, ICart } from "../../../types/states.useSelector";
 import { ICard } from "../../../types/store.initialState";
-import {useNavigate} from "react-router-dom";
-import {removeCart} from "../../../store/cart/cart.slice";
-import {removeShopSize} from "../../../store/shop/shop.slice";
+import { useNavigate } from "react-router-dom";
+import { removeCart } from "../../../store/cart/cart.slice";
+import { removeShopSize } from "../../../store/shop/shop.slice";
 
 interface Values {
   email: string;
@@ -21,14 +21,14 @@ export function FormCart() {
   const cart = useSelector((state: ICart) => state.cart.cart);
   const cards = useSelector((state: ICards) => state.shop.data);
   const basket = cards.filter((item: ICard) => cart.includes(item.id));
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const removeFullCart = () => {
-    dispatch(removeCart())
-    dispatch(removeShopSize())
-    navigate('/thanks')
-  }
+    dispatch(removeCart());
+    dispatch(removeShopSize());
+    navigate("/thanks");
+  };
 
   return (
     <Formik
@@ -80,13 +80,12 @@ export function FormCart() {
         };
         setTimeout(() => {
           setSubmitting(false);
-          fetch("sendmail.php", fetchArgs).then((response) => {
-            response.json().then(data => {
-              console.log('Success' + data)
-              removeFullCart()
-              navigate('/thanks')
+          fetch("sendmail.php", fetchArgs)
+            .then((response) => response.json())
+            .then(() => {
+              removeFullCart();
+              navigate("/thanks");
             });
-          });
         }, 500);
       }}
     >
