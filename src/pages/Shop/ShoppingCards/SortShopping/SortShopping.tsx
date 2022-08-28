@@ -8,13 +8,13 @@ import './SortShopping.scss'
 import {useDispatch} from "react-redux";
 import {searchItemShop, sortShop} from "../../../../store/shop/shop.slice";
 import { TextField } from "@mui/material";
-import {useState} from "react";
+import {ChangeEvent, useState} from "react";
 
 export default function SortShopping() {
-    const [price, setPrice] = useState('');
+    const [price, setPrice] = useState<string>('');
     const dispatch = useDispatch();
 
-    const searchItem = (e:any) => {
+    const searchItem = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch(searchItemShop(e.target.value))
     }
 

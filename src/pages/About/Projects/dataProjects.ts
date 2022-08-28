@@ -1,8 +1,9 @@
 import resource1 from "../../../img/oil-sea.jpg";
 import resource2 from "../../../img/oil_project.jpg";
 import resource3 from "../../../img/oil_project2.jpg";
+import {IProject} from "./Projects";
 
-export const dataProjects = [
+export const dataProjects: IProject[] = [
   {
     img: `${resource1}`,
     name: 'Oil pitching "Volzhskoe"',

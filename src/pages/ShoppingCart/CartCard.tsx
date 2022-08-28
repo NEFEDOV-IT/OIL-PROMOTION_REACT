@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { ICard } from "../../types/store.initialState";
 import { useDispatch } from "react-redux";
 import {
@@ -11,14 +11,16 @@ import { removeItemCart } from "../../store/cart/cart.slice";
 
 const CartCard = (item: ICard) => {
   const dispatch = useDispatch();
-  const [currentValue, setCurrentValue] = useState<number>(Number(item.size));
+  const [currentValue, setCurrentValue] = useState<number | string>(
+    Number(item.size)
+  );
 
-  const removeCard = () => {
+  const removeCard: () => void = () => {
     dispatch(changeSizeWithRemoveCart(item.id));
     dispatch(removeItemCart(item.id));
   };
 
-  const removeSize = () => {
+  const removeSize: () => void = () => {
     if (currentValue <= 1) return;
     setCurrentValue(Number(currentValue) - 1);
     const shopItem = {
@@ -28,7 +30,7 @@ const CartCard = (item: ICard) => {
     dispatch(removeShopSizeInCart(shopItem));
   };
 
-  const addSize = () => {
+  const addSize: () => void = () => {
     if (currentValue >= 99) return;
     setCurrentValue(Number(currentValue) + 1);
     const shopItem = {
@@ -38,7 +40,7 @@ const CartCard = (item: ICard) => {
     dispatch(addShopSizeInCart(shopItem));
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const currentSize = e.target.value.replace(/\D/g, "");
     if (Number(currentSize) > 99) return;
     setCurrentValue(currentSize);

@@ -1,8 +1,8 @@
-import React from "react";
+import React, {FC} from "react";
 import "./Thanks.scss";
 import { useNavigate } from "react-router-dom";
 
-const Thanks = () => {
+const Thanks: FC = () => {
   const navigate = useNavigate();
 
   return (

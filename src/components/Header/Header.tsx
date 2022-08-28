@@ -22,7 +22,7 @@ const Header: FC = () => {
               SHOP
             </Button>
           </Link>
-          <Link className={"link__basket"} to={"/basket"}>
+          <Link className={"link__basket"} to={"/cart"}>
             <CustomizedBadges />
           </Link>
         </div>

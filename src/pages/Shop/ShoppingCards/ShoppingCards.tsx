@@ -5,8 +5,14 @@ import { useSelector } from "react-redux";
 import { ICard } from "../../../types/store.initialState";
 import SortShopping from "./SortShopping/SortShopping";
 
+interface ICards {
+    shop: {
+        data: ICard[];
+    }
+}
+
 const ShoppingCards: FC = () => {
-  const cards = useSelector((state: any) => state.shop.data);
+  const cards = useSelector((state: ICards) => state.shop.data);
 
   return (
     <div className={"main"}>

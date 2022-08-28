@@ -17,7 +17,7 @@ const Shop: FC = () => {
                         variant="contained"
                         color="primary"
                         size="large"
-                        onClick={() => navigate('/basket')}
+                        onClick={() => navigate('/cart')}
                     >
                         TO CART
                     </Button><br/><br/>

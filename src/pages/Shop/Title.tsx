@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-const Title = () => {
+const Title: FC = () => {
     return (
         <h1 className="shop__title root__title">
             SHOP

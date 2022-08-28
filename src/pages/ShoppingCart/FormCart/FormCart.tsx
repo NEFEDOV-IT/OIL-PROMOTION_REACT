@@ -20,11 +20,11 @@ interface Values {
 export function FormCart() {
   const cart = useSelector((state: ICart) => state.cart.cart);
   const cards = useSelector((state: ICards) => state.shop.data);
-  const basket = cards.filter((item: ICard) => cart.includes(item.id));
+  const _cart = cards.filter((item: ICard) => cart.includes(item.id));
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const removeFullCart = () => {
+  const removeFullCart: () => void = () => {
     dispatch(removeCart());
     dispatch(removeShopSize());
     navigate("/thanks");
@@ -36,7 +36,7 @@ export function FormCart() {
         email: "",
         phone: "",
         name: "",
-        cart: basket,
+        cart: _cart,
       }}
       validate={(values) => {
         const errors: Partial<Values> = {};
@@ -67,7 +67,7 @@ export function FormCart() {
         formData.append("name", values.name);
         formData.append("phone", values.phone);
         formData.append("email", values.email);
-        basket.map((item: ICard, index: number) => {
+        _cart.map((item: ICard, index: number) => {
           return formData.append(
             "cart" + index,
             `ID${item.id}. ${item.name} заказано ${item.size} штук по цене ${item.price}${item.currency}`
