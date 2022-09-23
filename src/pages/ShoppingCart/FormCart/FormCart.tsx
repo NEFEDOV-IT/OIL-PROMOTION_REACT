@@ -4,11 +4,11 @@ import { TextField } from "formik-mui";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./FormCart.scss";
-import { ICards, ICart } from "../../../types/states.useSelector";
 import { ICard } from "../../../types/store.initialState";
 import { useNavigate } from "react-router-dom";
 import { removeCart } from "../../../store/cart/cart.slice";
 import { removeShopSize } from "../../../store/shop/shop.slice";
+import {getCards, getCart} from "../../../utils/selectors";
 
 interface Values {
   email: string;
@@ -18,9 +18,9 @@ interface Values {
 }
 
 export function FormCart() {
-  const cart = useSelector((state: ICart) => state.cart.cart);
-  const cards = useSelector((state: ICards) => state.shop.data);
-  const _cart = cards.filter((item: ICard) => cart.includes(item.id));
+  const cart = useSelector(getCart);
+  const cards = useSelector(getCards);
+  const newCart = cards.filter((item: ICard) => cart.includes(item.id));
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -36,7 +36,7 @@ export function FormCart() {
         email: "",
         phone: "",
         name: "",
-        cart: _cart,
+        cart: newCart,
       }}
       validate={(values) => {
         const errors: Partial<Values> = {};
@@ -67,7 +67,7 @@ export function FormCart() {
         formData.append("name", values.name);
         formData.append("phone", values.phone);
         formData.append("email", values.email);
-        _cart.map((item: ICard, index: number) => {
+        newCart.map((item: ICard, index: number) => {
           return formData.append(
             "cart" + index,
             `ID${item.id}. ${item.name} заказано ${item.size} штук по цене ${item.price}${item.currency}`

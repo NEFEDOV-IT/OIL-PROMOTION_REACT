@@ -5,13 +5,13 @@ import CartCard from "./CartCard";
 import "./ShoppingCart.scss";
 import TotalCart from "./TotalCart/TotalCart";
 import RemoveCart from "./RemoveCart";
-import { ICards, ICart } from "../../types/states.useSelector";
 import { FormCart } from "./FormCart/FormCart";
 import CartTextNull from "./CartTextNull";
+import {getCards, getCart} from "../../utils/selectors";
 
 const ShoppingCart: FC = () => {
-  const cart = useSelector((state: ICart) => state.cart.cart);
-  const cards = useSelector((state: ICards) => state.shop.data);
+  const cart = useSelector(getCart);
+  const cards = useSelector(getCards);
   const basket = cards.filter((item: ICard) => cart.includes(item.id));
 
   return (

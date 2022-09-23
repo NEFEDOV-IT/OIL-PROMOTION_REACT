@@ -4,15 +4,10 @@ import "./ShoppingCards.scss";
 import { useSelector } from "react-redux";
 import { ICard } from "../../../types/store.initialState";
 import SortShopping from "./SortShopping/SortShopping";
-
-interface ICards {
-    shop: {
-        data: ICard[];
-    }
-}
+import {getCards} from "../../../utils/selectors";
 
 const ShoppingCards: FC = () => {
-  const cards = useSelector((state: ICards) => state.shop.data);
+  const cards = useSelector(getCards);
 
   return (
     <div className={"main"}>
