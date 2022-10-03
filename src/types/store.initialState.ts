@@ -9,5 +9,6 @@ export interface ICard {
 }
 
 export interface ShopState {
+    searchValue: string;
     data: ICard[];
 }

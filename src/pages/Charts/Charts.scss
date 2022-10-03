@@ -10,6 +10,7 @@
       margin-bottom: 40px;
     }
   }
+
   & .oil__charts-text {
     margin-bottom: 30px;
     text-align: left;
@@ -17,9 +18,11 @@
     @media screen and (max-width: 767.98px) {
       font-size: 14px;
     }
+
     & .oil__charts-ton {
       display: flex;
       align-items: center;
+
       &:before {
         content: '';
         background-color: #0478b3;
@@ -28,9 +31,11 @@
         display: inline-block;
       }
     }
+
     & .oil__charts-plan {
       display: flex;
       align-items: center;
+
       &:before {
         content: '';
         background-color: #656565;

@@ -2,13 +2,12 @@ import { Button, LinearProgress } from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-mui";
 import * as React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import "./FormCart.scss";
 import { ICard } from "../../../types/store.initialState";
 import { useNavigate } from "react-router-dom";
 import { removeCart } from "../../../store/cart/cart.slice";
 import { removeShopSize } from "../../../store/shop/shop.slice";
-import {getCards, getCart} from "../../../utils/selectors";
+import { getCards, getCart } from "../../../utils/selectors";
+import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 
 interface Values {
   email: string;
@@ -18,11 +17,11 @@ interface Values {
 }
 
 export function FormCart() {
-  const cart = useSelector(getCart);
-  const cards = useSelector(getCards);
+  const cart = useAppSelector(getCart);
+  const cards = useAppSelector(getCards);
   const newCart = cards.filter((item: ICard) => cart.includes(item.id));
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const removeFullCart: () => void = () => {
     dispatch(removeCart());

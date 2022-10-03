@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
-import {svg} from "./svgHome";
+import { svg } from "./svgHome";
 
 const Home: FC = () => {
   const navigate = useNavigate();

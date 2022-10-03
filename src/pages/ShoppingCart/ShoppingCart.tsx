@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { useSelector } from "react-redux";
 import { ICard } from "../../types/store.initialState";
 import CartCard from "./CartCard";
 import "./ShoppingCart.scss";
@@ -7,11 +6,12 @@ import TotalCart from "./TotalCart/TotalCart";
 import RemoveCart from "./RemoveCart";
 import { FormCart } from "./FormCart/FormCart";
 import CartTextNull from "./CartTextNull";
-import {getCards, getCart} from "../../utils/selectors";
+import { getCards, getCart } from "../../utils/selectors";
+import { useAppSelector } from "../../hooks/hooks";
 
 const ShoppingCart: FC = () => {
-  const cart = useSelector(getCart);
-  const cards = useSelector(getCards);
+  const cart = useAppSelector(getCart);
+  const cards = useAppSelector(getCards);
   const basket = cards.filter((item: ICard) => cart.includes(item.id));
 
   return (

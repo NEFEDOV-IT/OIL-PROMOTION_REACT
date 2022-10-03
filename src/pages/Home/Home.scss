@@ -7,17 +7,20 @@
 
 .main__body {
   color: #000;
+
   & .main__body-title {
     font-size: 3rem;
     margin-bottom: 40px;
     @media screen and (max-width: 474.98px) {
       font-size: 1.8rem;
     }
+
     & span {
       display: inline-block;
       color: #0478b3;
       white-space: nowrap;
       position: relative;
+
       & svg {
         position: absolute;
         max-width: 500px;
@@ -44,11 +47,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   & .link-about {
     font-weight: bold;
     margin-right: 30px;
     cursor: pointer;
   }
+
   & .link-contacts {
     background-color: #0478b3;
     color: #fff;

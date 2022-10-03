@@ -8,7 +8,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import {dataCharts} from "../dataCharts";
+import { dataCharts } from "../dataCharts";
 
 const ChartOilPlan = () => {
   return (

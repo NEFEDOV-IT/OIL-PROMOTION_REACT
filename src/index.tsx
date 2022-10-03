@@ -4,7 +4,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./style/themeProvider";
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 import { store } from "./store";
 
 const root = ReactDOM.createRoot(
@@ -12,11 +12,11 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-    <Provider store={store}>
-        <BrowserRouter basename="/_sites/oil-promotion">
-            <ThemeProvider theme={theme}>
-                <App />
-            </ThemeProvider>
-        </BrowserRouter>
-    </Provider>
+  <Provider store={store}>
+    <BrowserRouter basename="/_sites/oil-promotion">
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
+  </Provider>
 );

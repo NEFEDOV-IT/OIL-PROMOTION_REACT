@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
 import { ICard } from "../../types/store.initialState";
-import { useDispatch } from "react-redux";
 import {
   addShopSizeInCart,
   changeQuantity,
@@ -8,9 +7,10 @@ import {
   removeShopSizeInCart,
 } from "../../store/shop/shop.slice";
 import { removeItemCart } from "../../store/cart/cart.slice";
+import { useAppDispatch } from "../../hooks/hooks";
 
 const CartCard = (item: ICard) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [currentValue, setCurrentValue] = useState<number | string>(
     Number(item.size)
   );

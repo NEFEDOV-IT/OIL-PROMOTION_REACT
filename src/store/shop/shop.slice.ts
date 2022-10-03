@@ -75,9 +75,7 @@ export const shopSlice = createSlice({
       }
     },
     searchItemShop(state, action) {
-      state.data = initialState.data.filter((item) =>
-        item.name.toLowerCase().includes(action.payload.toLowerCase())
-      );
+      state.searchValue = action.payload;
     },
   },
 });

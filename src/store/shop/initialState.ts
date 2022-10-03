@@ -12,6 +12,7 @@ import { ShopState } from "../../types/store.initialState";
 export const DOLLAR = '$';
 
 export const initialState: ShopState = {
+  searchValue: '',
   data: [
     {
       id: 1,

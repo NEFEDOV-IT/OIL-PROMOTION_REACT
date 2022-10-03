@@ -1,10 +1,9 @@
 import React, { FC } from "react";
-import { useSelector } from "react-redux";
 import "./TotalCart.scss";
 import { DOLLAR } from "../../../store/shop/initialState";
 import { ICard } from "../../../types/store.initialState";
-import { ICards, ICart } from "../../../types/states.useSelector";
-import {getCards, getCart} from "../../../utils/selectors";
+import { getCards, getCart } from "../../../utils/selectors";
+import { useAppSelector } from "../../../hooks/hooks";
 
 interface ICartFilter {
   price: number;
@@ -12,8 +11,8 @@ interface ICartFilter {
 }
 
 const TotalCart: FC = () => {
-  const cart = useSelector(getCart);
-  const cards = useSelector(getCards);
+  const cart = useAppSelector(getCart);
+  const cards = useAppSelector(getCards);
   const newCart = cards.filter((item: ICard) => cart.includes(item.id));
   const answer: number[] = [];
 

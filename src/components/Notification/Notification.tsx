@@ -7,7 +7,6 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Notification.scss";
 
 export default function Notification() {
   const navigate = useNavigate();

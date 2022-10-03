@@ -1,10 +1,10 @@
-import React, {ChangeEvent, FC, useState} from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import "./ShoppingCard.scss";
 import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
 import { ICard } from "../../../../types/store.initialState";
 import { addItemCart } from "../../../../store/cart/cart.slice";
 import { addShopSize } from "../../../../store/shop/shop.slice";
+import { useAppDispatch } from "../../../../hooks/hooks";
 
 interface IProps {
   item: ICard;
@@ -12,7 +12,7 @@ interface IProps {
 
 const ShoppingCard: FC<IProps> = ({ item }) => {
   const [value, setValue] = useState<number>(1);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const HandleClick: () => void = () => {
     if (value === 0) return;
@@ -49,7 +49,7 @@ const ShoppingCard: FC<IProps> = ({ item }) => {
         <div className={"card__size"}>
           <div onClick={removeSize} className={"card__size-minus"} />
           <input
-            onChange={(e:ChangeEvent<HTMLInputElement>) => setValue(Number(e.target.value))}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setValue(Number(e.target.value))}
             className={"card__size-input"}
             value={value}
             type="text"

@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import { useDispatch } from "react-redux";
 import { removeCart } from "../../store/cart/cart.slice";
 import { removeShopSize } from "../../store/shop/shop.slice";
+import { useAppDispatch } from "../../hooks/hooks";
 
 const RemoveCart: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const removeFullCart: () => void = () => {
     dispatch(removeCart());

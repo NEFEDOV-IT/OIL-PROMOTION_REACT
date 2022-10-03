@@ -5,50 +5,50 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './SortShopping.scss'
-import {useDispatch} from "react-redux";
-import {searchItemShop, sortShop} from "../../../../store/shop/shop.slice";
+import { searchItemShop, sortShop } from "../../../../store/shop/shop.slice";
 import { TextField } from "@mui/material";
-import {ChangeEvent, useState} from "react";
+import { ChangeEvent, useState } from "react";
+import { useAppDispatch } from "../../../../hooks/hooks";
 
 export default function SortShopping() {
-    const [price, setPrice] = useState<string>('');
-    const dispatch = useDispatch();
+  const [price, setPrice] = useState<string>('');
+  const dispatch = useAppDispatch();
 
-    const searchItem = (e: ChangeEvent<HTMLInputElement>) => {
-        dispatch(searchItemShop(e.target.value))
-    }
+  const searchItem = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(searchItemShop(e.target.value))
+  }
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setPrice(event.target.value as string);
-        dispatch(sortShop(event.target.value))
-    };
+  const handleChange = (event: SelectChangeEvent) => {
+    setPrice(event.target.value as string);
+    dispatch(sortShop(event.target.value))
+  };
 
-    return (
-        <Box className={'cards__prices'}>
-            <TextField
-                onChange={searchItem}
-                className={'cards__prices-input'}
-                id="outlined-basic"
-                label="Search"
-                variant="outlined"
-            />
-            <FormControl>
-                <InputLabel id="demo-simple-select-label">Sort</InputLabel>
-                <Select
-                    className={'cards__prices-select'}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={price}
-                    label="Sort"
-                    onChange={handleChange}
-                >
-                    <MenuItem value={1}>Default</MenuItem>
-                    <MenuItem value={2}>Min price</MenuItem>
-                    <MenuItem value={3}>Max price</MenuItem>
-                    <MenuItem value={4}>A-Z</MenuItem>
-                    <MenuItem value={5}>Z-A</MenuItem>
-                </Select>
-            </FormControl>
-        </Box>
-    );
+  return (
+    <Box className={'cards__prices'}>
+      <TextField
+        onChange={searchItem}
+        className={'cards__prices-input'}
+        id="outlined-basic"
+        label="Search"
+        variant="outlined"
+      />
+      <FormControl>
+        <InputLabel id="demo-simple-select-label">Sort</InputLabel>
+        <Select
+          className={'cards__prices-select'}
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={price}
+          label="Sort"
+          onChange={handleChange}
+        >
+          <MenuItem value={1}>Default</MenuItem>
+          <MenuItem value={2}>Min price</MenuItem>
+          <MenuItem value={3}>Max price</MenuItem>
+          <MenuItem value={4}>A-Z</MenuItem>
+          <MenuItem value={5}>Z-A</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
+  );
 }
