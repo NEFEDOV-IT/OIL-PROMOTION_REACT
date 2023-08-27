@@ -6,7 +6,7 @@ import { svg } from "./svgHome";
 const Home: FC = () => {
   const navigate = useNavigate();
 
-  const HandleClick = (url: string) => {
+  const handleClick = (url: string) => {
     navigate(url);
   };
 
@@ -21,11 +21,11 @@ const Home: FC = () => {
             We are developing oil fields and extracting oil for business.
           </div>
           <div className="main__body-links">
-            <div onClick={() => HandleClick("/about")} className="link-about">
+            <div onClick={() => handleClick("/about")} className="link-about">
               About
             </div>
             <div
-              onClick={() => HandleClick("/contacts")}
+              onClick={() => handleClick("/contacts")}
               className="link-contacts"
             >
               Contacts
