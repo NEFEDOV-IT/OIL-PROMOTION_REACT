@@ -9,11 +9,16 @@ import { removeShopSize } from "../../../store/shop/shop.slice";
 import { getCards, getCart } from "../../../utils/selectors";
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 
-interface Values {
+interface IValues {
   email: string;
   phone: string;
   name: string;
   cart: [];
+}
+
+interface IFetchData {
+  method: string,
+  body: FormData,
 }
 
 export function FormCart() {
@@ -29,6 +34,24 @@ export function FormCart() {
     navigate("/thanks");
   };
 
+  const validateForm = (values: IValues) => {
+    const errors: Partial<IValues> = {};
+    if (!values.email) {
+      errors.email = "Required";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = "Invalid email address";
+    }
+    if (!values.phone) {
+      errors.phone = "Enter the phone number without symbols or spaces.";
+    } else if (!/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(values.phone)) {
+      errors.phone = "Invalid phone number";
+    }
+    if (!values.name) {
+      errors.name = "Enter your name";
+    }
+    return errors;
+  }
+
   return (
     <Formik
       initialValues={{
@@ -37,29 +60,7 @@ export function FormCart() {
         name: "",
         cart: newCart,
       }}
-      validate={(values) => {
-        const errors: Partial<Values> = {};
-        if (!values.email) {
-          errors.email = "Required";
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-        ) {
-          errors.email = "Invalid email address";
-        }
-        if (!values.phone) {
-          errors.phone = "Enter the phone number without symbols or spaces.";
-        } else if (
-          !/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(
-            values.phone
-          )
-        ) {
-          errors.phone = "Invalid phone number";
-        }
-        if (!values.name) {
-          errors.name = "Enter your name";
-        }
-        return errors;
-      }}
+      validate={validateForm}
       onSubmit={(values, { setSubmitting }) => {
         const formData = new FormData();
 
@@ -73,18 +74,20 @@ export function FormCart() {
           );
         });
 
-        const fetchArgs: any = {
+        const fetchArgs: IFetchData = {
           method: "POST",
           body: formData,
         };
+
         setTimeout(() => {
-          setSubmitting(false);
           fetch("sendmail.php", fetchArgs)
             .then((response) => response.json())
             .then(() => {
               removeFullCart();
               navigate("/thanks");
-            });
+            })
+            .catch(console.log)
+            .finally(() => setSubmitting(false))
         }, 500);
       }}
     >

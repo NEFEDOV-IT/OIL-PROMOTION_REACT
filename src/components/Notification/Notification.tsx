@@ -12,16 +12,13 @@ export default function Notification() {
   const navigate = useNavigate();
   const [open, setOpen] = useState<boolean>(false);
   const [scroll, setScroll] = useState<DialogProps["scroll"]>("paper");
-
   const handleClickOpen = (scrollType: DialogProps["scroll"]) => () => {
     setOpen(true);
     setScroll(scrollType);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
-
   const toNavigate = (url: string) => {
     navigate(url);
     handleClose();

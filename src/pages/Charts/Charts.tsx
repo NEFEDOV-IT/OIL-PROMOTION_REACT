@@ -2,21 +2,27 @@ import React, { FC } from "react";
 import "./Charts.scss";
 import ChartOil from "./ChartOil/ChartOil";
 import ChartOilPlan from "./ChartOilPlan/ChartOilPlan";
-import { chartsText } from "./chartsText";
+import Page from "../../components/Page/Page";
 
 const Charts: FC = () => {
   return (
-    <div className={"main"}>
-      <div className="container">
-        <div className="oil__charts">
-          {chartsText.h1}
-          {chartsText.h2}
-          <ChartOilPlan />
-          {chartsText.text}
-          <ChartOil />
+    <Page
+      title={'Charts'}
+      titleClass={'oil__charts-h1'}
+    >
+      <div className="oil__charts">
+        <h2 className="oil__charts-h2">
+          Graph of oil production for the last year
+        </h2>
+        <ChartOilPlan />
+        <div className="oil__charts-text">
+          <p>*Oil production is indicated in tons per month.</p>
+          <span className={"oil__charts-ton"}> &nbsp; - Actual production</span>
+          <span className={"oil__charts-plan"}> &nbsp; - Planned production</span>
         </div>
+        <ChartOil />
       </div>
-    </div>
+    </Page>
   );
 };
 

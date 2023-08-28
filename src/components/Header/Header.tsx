@@ -10,11 +10,9 @@ import { searchItemShop } from "../../store/shop/shop.slice";
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
-
   function handleClick() {
     dispatch(searchItemShop(''))
   }
-
   return (
     <header className="header">
       <div className={"header__body"}>

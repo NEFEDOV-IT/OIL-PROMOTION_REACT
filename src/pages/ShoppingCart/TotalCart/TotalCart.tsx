@@ -25,7 +25,7 @@ const TotalCart: FC = () => {
   return (
     <>
       <div className="basket__total">
-        {newCart.length > 0 ? `TOTAL: ${sumCart} ${DOLLAR}` : null}
+        {newCart?.length > 0 ? `TOTAL: ${sumCart} ${DOLLAR}` : null}
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import { ICard } from "../../types/store.initialState";
 import {
   addShopSizeInCart,
@@ -9,17 +9,13 @@ import {
 import { removeItemCart } from "../../store/cart/cart.slice";
 import { useAppDispatch } from "../../hooks/hooks";
 
-const CartCard = (item: ICard) => {
+const CartCard: FC<ICard> = (item) => {
   const dispatch = useAppDispatch();
-  const [currentValue, setCurrentValue] = useState<number | string>(
-    Number(item.size)
-  );
-
+  const [currentValue, setCurrentValue] = useState<number | string>(Number(item.size));
   const removeCard: () => void = () => {
     dispatch(changeSizeWithRemoveCart(item.id));
     dispatch(removeItemCart(item.id));
   };
-
   const removeSize: () => void = () => {
     if (currentValue <= 1) return;
     setCurrentValue(Number(currentValue) - 1);

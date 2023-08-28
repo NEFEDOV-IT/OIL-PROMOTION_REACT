@@ -7,20 +7,18 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './SortShopping.scss'
 import { searchItemShop, sortShop } from "../../../../store/shop/shop.slice";
 import { TextField } from "@mui/material";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { useAppDispatch } from "../../../../hooks/hooks";
 
-export default function SortShopping() {
+const SortShopping: FC = () => {
   const [price, setPrice] = useState<string>('');
   const dispatch = useAppDispatch();
-
   const searchItem = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(searchItemShop(e.target.value))
   }
-
   const handleChange = (event: SelectChangeEvent) => {
     setPrice(event.target.value as string);
-    dispatch(sortShop(event.target.value))
+    dispatch(sortShop(Number(event.target.value)))
   };
 
   return (
@@ -52,3 +50,5 @@ export default function SortShopping() {
     </Box>
   );
 }
+
+export default SortShopping;

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "./initialState";
 
 export const shopSlice = createSlice({
@@ -15,7 +15,7 @@ export const shopSlice = createSlice({
         state.data[index].size += action.payload.size;
       }
     },
-    addShopSizeInCart(state, action) {
+    addShopSizeInCart(state, action: PayloadAction<{ id: number; size: number }>) {
       const index = state.data.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -23,7 +23,7 @@ export const shopSlice = createSlice({
         state.data[index].size += action.payload.size;
       }
     },
-    changeQuantity(state, action) {
+    changeQuantity(state, action: PayloadAction<{ id: number; size: number }>) {
       const index = state.data.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -31,13 +31,13 @@ export const shopSlice = createSlice({
         state.data[index].size = action.payload.size;
       }
     },
-    changeSizeWithRemoveCart(state, action) {
+    changeSizeWithRemoveCart(state, action: PayloadAction<number>) {
       const index = state.data.findIndex(
         (item) => item.id === action.payload
       );
       state.data[index].size = 0;
     },
-    removeShopSizeInCart(state, action) {
+    removeShopSizeInCart(state, action: PayloadAction<{ id: number; size: number }>) {
       const index = state.data.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -48,28 +48,20 @@ export const shopSlice = createSlice({
     removeShopSize(state) {
       state.data.map((item) => (item.size = 0));
     },
-    sortShop(state, action) {
+    sortShop(state, action: PayloadAction<number>) {
       switch (action.payload) {
         case 2:
           state.data.sort((a, b) => a.price - b.price);
-          return;
+          break;
         case 3:
           state.data.sort((a, b) => b.price - a.price);
-          return;
+          break;
         case 4:
-          state.data.sort((a, b) => {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
-            return 0;
-          });
-          return;
+          state.data.sort((a, b) => a.name.localeCompare(b.name));
+          break;
         case 5:
-          state.data.sort((a, b) => {
-            if (a.name > b.name) return -1;
-            if (a.name < b.name) return 1;
-            return 0;
-          });
-          return;
+          state.data.sort((a, b) => b.name.localeCompare(a.name));
+          break;
         default:
           state.data.sort((a, b) => a.id - b.id);
       }

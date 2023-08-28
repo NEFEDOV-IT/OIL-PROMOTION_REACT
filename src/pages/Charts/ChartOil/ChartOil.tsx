@@ -12,12 +12,14 @@ import {
 } from "recharts";
 
 const ChartOil: FC = () => {
-  const [initialData, setInitialData] = useState("");
+  const [initialData, setInitialData] = useState<string>("");
 
   useEffect(() => {
-    request().then((response) =>
-      setInitialData(JSON.stringify(response.values))
-    );
+    request()
+      .then((response) =>
+        setInitialData(JSON.stringify(response.values))
+      )
+      .catch(console.log);
   }, [initialData]);
 
   return (

@@ -1,11 +1,9 @@
-.main__home {
+.main__body {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.main__body {
   color: #000;
 
   & .main__body-title {

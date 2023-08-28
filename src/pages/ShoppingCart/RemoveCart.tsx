@@ -5,14 +5,16 @@ import { useAppDispatch } from "../../hooks/hooks";
 
 const RemoveCart: FC = () => {
   const dispatch = useAppDispatch();
-
   const removeFullCart: () => void = () => {
     dispatch(removeCart());
     dispatch(removeShopSize());
   };
 
   return (
-    <div onClick={removeFullCart} className="basket__cards-cart">
+    <div
+      onClick={removeFullCart}
+      className="basket__cards-cart"
+    >
       &#128465; EMPTY TRASH
     </div>
   );
