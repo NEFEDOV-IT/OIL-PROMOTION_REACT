@@ -13,6 +13,8 @@ import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import Thanks from "./pages/Thanks/Thanks";
 
 const App: FC = () => {
+
+  console.log('111')
   return (
     <div className="wrapper">
       <Header />
